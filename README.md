@@ -1,6 +1,7 @@
 # Exercícios avaliativos realizados na disicplina de tópicos especiais de software.
 
 Foi adotado desenvolvimento orientado a objetos para resolução dos exercícios (minha preferência). Alguns dos requisitos foram levemente adaptados mas todos comportamentos esperados estão presentes nos programas.
+Obs: no exercício 3 é citado um arquivo txt de palavras, não encontrei esse arquivo, mas criei um, está no repositório e foi consumido para o propósito da atividade.
 
 Estratégia para resolução dos exercícios foram descritas nas classes, comentários com Docstrings feitos para classes e métodos.
 
