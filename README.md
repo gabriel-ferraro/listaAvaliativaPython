@@ -28,7 +28,7 @@ Estratégia para resolução dos exercícios foram descritas nas classes, coment
 ## ex4 - simulador de banco de dados em memória
 
 Cadastro de usuários
-[print do simulador de banco de dados em memória (cadastro)](./images/ex4_cadastro.png)
+![print do simulador de banco de dados em memória (cadastro)](./images/ex4_cadastro.png)
 
 Exibição de usuários
-[print do simulador de banco de dados em memória (exibição)](./images/ex4_pesquisas.png)
+![print do simulador de banco de dados em memória (exibição)](./images/ex4_pesquisas.png)
