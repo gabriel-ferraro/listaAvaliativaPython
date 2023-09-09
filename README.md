@@ -17,7 +17,7 @@ Estratégia para resolução dos exercícios foram descritas nas classes, coment
 
 ![print do jogo da velha 4x4](./images/ex1_tic_tac_toe_4x4.png)
 
-## ex2 - jogo da velha NxN
+## ex2 - jogo da velha NxN (sendo n=2, por mais que não faça sentido)
 
 ![print do jogo da velha NxN](./images/ex2_tic_tac_toe_NxN.png)
 
@@ -27,8 +27,8 @@ Estratégia para resolução dos exercícios foram descritas nas classes, coment
 
 ## ex4 - simulador de banco de dados em memória
 
-* Cadastro de usuários
+Cadastro de usuários
 [print do simulador de banco de dados em memória (cadastro)](./images/ex4_cadastro.png)
 
-* Exibição de usuários
+Exibição de usuários
 [print do simulador de banco de dados em memória (exibição)](./images/ex4_pesquisas.png)
