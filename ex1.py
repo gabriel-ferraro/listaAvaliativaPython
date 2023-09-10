@@ -78,7 +78,7 @@ class Tic_tac_toe_4x4_game:
                 game_continue = False
 
         # Verificar vitória nas diagonais. For da esquerda checa se diagonal esquerda (valores de i crescente): 0,0 - 1,1 - 2,2 - 3,3 tem o símbolo do jogador.
-        # For da direia compara valores da diagonal direita (linha -> i e coluna -> 4-1-i): 0,3 - 1,2 - 2,1 - 3,0.
+        # For da direita compara valores da diagonal direita (linha -> i e coluna -> 4-1-i): 0,3 - 1,2 - 2,1 - 3,0.
         if all(self.board[i][i] == player_symbol for i in range(4)) or all(self.board[i][4 - 1 - i] == player_symbol for i in range(4)):
             self._victory_message(player_symbol)
             game_continue = False
@@ -115,7 +115,7 @@ class Tic_tac_toe_4x4_game:
     def _make_play(self, current_player_symbol: str) -> None:
         """_summary_
             Identifica o símbolo do jogador atual e o grid onde o jogador deseja jogar.
-            Faz a jogada se os símbolos são váidos e o campo escolhido ainda não foi preenchido.
+            Faz a jogada se os símbolos são váidos e o campo escolhido ainda não foi preenchido, aumenta qtde de jogadas.
         Args:
             player_symbol (str): símbolo do jogador atual.
         """

@@ -4,7 +4,7 @@ class Fake_database():
     """_summary_
         Simula um banco de dados salvando usuários em memória. Ao iniciar o programa o usuário deve inserir valores que servirão como chaves obrigatórias,
         que devem ser sempre preenchidas ao registrar um novo usuário. Após a primeira etapa o programa mostra um menu de escolhas onde o usuário pode registrar novos usuários,
-        inserir campos opcionais e 'salvar' o usuário; A outra opção permite pesquisar por todos usuários salvos na lista de tuplas.
+        inserir campos opcionais e 'salvar' o usuário; A outra opção permite pesquisar por todos usuários salvos na lista de tuplas, pesquisar por nome ou por atributos.
     """
     def __init__(self):
         """_summary_
@@ -15,9 +15,9 @@ class Fake_database():
     
     def _get_user_obligatory_fields_tuple(self) -> None:
         """_summary_
-            Adquire os campos obrigatórios por input. e usuário digitar nenhum retorna tupla vazia.
+            Adquire os campos obrigatórios por input. Se o usuário digitar nenhum retorna uma tupla vazia.
         Returns:
-            obligatory_tuple: tupla com campos obrigatórios inseridos pelo usuário (validados) ou tupla vazia.
+            obligatory_tuple: tupla com campos obrigatórios inseridos pelo usuário (validados) ou uma tupla vazia.
         """
         tuple_for_keys = tuple()
         while True:
@@ -38,6 +38,8 @@ class Fake_database():
 
     def _register_user(self) -> None:
         """_summary_
+            "Persiste" usuário no banco em memória após receber atributos da tupla de itens obrigatórios (se usuário inseriu algum item nela);
+            usuário recebe aributos opcionais se usuário inseriu algum.
         """
         user = {}
         # Checa se tupla de itens obrigatórios tem itens.
@@ -45,7 +47,6 @@ class Fake_database():
             # Pede para preencher os campos obrigatórios.
             for field in self.obligatory_fields_tuple:
                 user[field] = input(f"Digite o valor para o campo '{field}': ")
-        
         # Pede para preencher os campos opcionais.
         while True:
             optional_field = input("Digite o nome de um campo opcional (ou 'sair' para encerrar): ")
@@ -59,10 +60,10 @@ class Fake_database():
     
     def _print_users(self, *args, **kwargs) -> None:
         """_summary_
-            Identifica argmentos recebidos. Se não receber argumentos faz print de todos dados, se receber nomes retorna todos dados dos usuários recebidos,
-            se receber argumentos de chave e valor, faz print das informações dos usuários que combinam.
+            Identifica argmentos recebidos. Se não receber argumentos faz print de todos dados, se receber tupla de nomes nos args, retorna todos dados dos usuários recebidos,
+            se receber argumentos de chave-valor em kwargs, faz print das informações dos usuários que combinam com os dados.
         """
-        # Checa condições.
+        # Checa condições - não recebeu nada.
         if (not args and not kwargs):
             # Caso a função não receba argumentos, imprimir todos os usuários com todas as informações
             for user in self.user_bank:
@@ -73,21 +74,20 @@ class Fake_database():
             for user in self.user_bank:
                 # Por default atende condições para fazer pesquisa.
                 meet_conditions = True
-                # Filtrar por nomes
+                # Filtrar por tupla de nomes recebidos no param args.
                 if (args):
                     if (user.get("nome") not in args):
                         meet_conditions = False
-                # Filtrar por campos e valores
+                # Filtrar por campos e valores recebidos no param kwargs.
                 for field, value in kwargs.items():
                     if (field not in user or user[field] != value):
                         meet_conditions = False
                 if (meet_conditions):
                     filtered_users.append(user)
-            # Imprimir os usuários filtrados
+            # Imprimir os usuários filtrados.
             print('\nDados identificados: ')
             for user in filtered_users:
                 print(user)
-
 
     def _select_user_search(self) -> None:
         """_summary_

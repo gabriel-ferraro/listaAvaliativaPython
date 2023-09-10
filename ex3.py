@@ -14,22 +14,22 @@ class Termo_game:
     def __init__(self, amount_of_tries: int, archive_path: str) -> None:
         """_summary_
             O construtor recebe a quantidade de tentativas que o jogador terá para adivinhar a palavra e o caminho para o arquivo txt com a lista de palavras.
-            São inicializadas com valores vazios as variáveis de controle para: a palavra atual (random), a palavra de tentativa atual do jogador, uma lista
-            para armazenar os valores do txt em memória e uma lista para exibir o histórico de tentativas ao jogador.
+            São recebidos como args: amount_of_tries para indicar as tentativas que o jogador terá para vencer o jogo e archive_path para receber o local da lista de arquivos.
         Args:
             amount_of_tries (int): Quantidade de tentativas que o jogador terá até acertar palavra.
             archive_path (str): caminho até arquivo lista_palavras.txt.
         """
         self.archive_path = archive_path
         self.amount_of_tries = amount_of_tries
-        self.current_word = '' # Palavra escolhida aleatóriamente do arquivo lista_palavras.txt
-        self.player_guess = '' # Palavra inserida na tentativa "atual" do jogador.
+        self.current_word = '' # Armazena a palavra escolhida aleatóriamente do arquivo lista_palavras.txt.
+        self.player_guess = '' # Armazena a palavra inserida na tentativa "atual" do jogador.
         self.words_list = [] # Lista para carregar palavras do arquivo em memória.
         self.guess_history = [] # Lista com histórico de tentativas do  jogador.
 
     def _load_words_from_file(self) -> None:
         """_summary_
             Percorre arquivo com as palavras do jogo, remove espaços em brancos e carrega palavras em memória na lista.
+            É necessário que cada palavra esteja em uma linha no txt.
         """
         with open(self.archive_path, 'r') as archive:
             # Lê as linhas do arquivo e remove espaços em branco, insere na lista.
@@ -54,7 +54,6 @@ class Termo_game:
     def _check_matching_letters(self, attempt_number):
         """_summary_
             Identifica letras enviadas pelo player e aplica coloração azul ou amarela se estiverem presentes na palavra a ser adivinhada.
-            Aumenta contador de jogadas e atualiza histórico de tentativas.
         """
         # Transforma string (imutável) em lista (mutável).
         current_word_list = list(self.player_guess)
@@ -112,7 +111,7 @@ class Termo_game:
             # Aumenta quantidade de tentativas.
             attempt += 1
         # Fim do jogo
-        print(f'A palavra era -> {self.current_word } \nFim de jogo!')
+        print(f'A palavra era -> {self.current_word} \nFim de jogo!')
 
 game = Termo_game(6, './lista_palavras.txt')
 game.run_game()
