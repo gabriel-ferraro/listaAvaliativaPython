@@ -7,6 +7,7 @@ Estratégia para resolução dos exercícios foram descritas nas classes, coment
 
 * Foram atentdidos todos requisitos da lista.
 * Para gerar os comentários, foi utilizado um plugin auxiliar no vsc chamado autoDocstring - Python Docstring Generator.
+* O código foi desenvolvido em inglês e os comentários em português. É uma convenção no código feito na minha empresa, por isso reproduzi na atividade.
 * Imagens de exemplo dos programas sendo executados abaixo.
 * libs utilizadas:
     random - para adquirir um arquivo randômico no ex3.
